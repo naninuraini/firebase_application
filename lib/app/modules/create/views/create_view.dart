@@ -9,7 +9,7 @@ class CreateView extends GetView<CreateController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CreateView'),
+        title: const Text(''),
         centerTitle: true,
       ),
       body: Padding(
@@ -20,11 +20,8 @@ class CreateView extends GetView<CreateController> {
               alignment: Alignment.center,
               padding: const EdgeInsets.all(10),
               child: const Text(
-                'Add Post Page',
-                style: TextStyle(
-                    color: Colors.indigo,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 30),
+                'Add Job Vacancy',
+                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
             Container(
@@ -33,7 +30,7 @@ class CreateView extends GetView<CreateController> {
                 controller: controller.titleController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(15.0)),
                   labelText: 'Title',
                 ),
                 textInputAction: TextInputAction.next,
@@ -45,8 +42,20 @@ class CreateView extends GetView<CreateController> {
                 controller: controller.descriptionController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20)),
+                      borderRadius: BorderRadius.circular(15.0)),
                   labelText: 'Description',
+                ),
+                textInputAction: TextInputAction.next,
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 10, 10, 20),
+              child: TextField(
+                controller: controller.positionController,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(15.0)),
+                  labelText: 'Position',
                 ),
                 textInputAction: TextInputAction.next,
               ),
@@ -56,16 +65,19 @@ class CreateView extends GetView<CreateController> {
               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.white,
-                  backgroundColor: Colors.indigo,
+                  backgroundColor: Color(0xFFDBB7B7),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32.0),
+                    borderRadius: BorderRadius.circular(10.0),
                   ),
+                  padding: const EdgeInsets.symmetric(vertical: 15.0),
                 ),
-                child: const Text('Add'),
+                child: const Text('Add', 
+                style: TextStyle(color: Colors.white),),
                 onPressed: () {
-                  controller.addData(controller.titleController.text,
-                      controller.descriptionController.text);
+                  controller.addData(
+                      controller.titleController.text,
+                      controller.descriptionController.text,
+                      controller.positionController.text);
                 },
               ),
             ),
@@ -75,3 +87,4 @@ class CreateView extends GetView<CreateController> {
     );
   }
 }
+

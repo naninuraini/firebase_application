@@ -7,19 +7,33 @@ import 'package:get/get.dart';
 class CreateController extends GetxController {
   late TextEditingController titleController;
   late TextEditingController descriptionController;
+  late TextEditingController positionController;
+
   FirebaseFirestore firestore = FirebaseFirestore.instance;
 
-  void addData(String title, String description) async {
+  void addData(String title, String description, String position) async {
     try {
+      if (title.isEmpty) {
+        Get.snackbar('Error', 'Please enter title');
+        return;
+      } else if (description.isEmpty) {
+        Get.snackbar('Error', 'Please enter description');
+        return;
+      } else if (position.isEmpty) {
+        Get.snackbar('Error', 'Please enter position');
+        return;
+      }
+
       String dateNow = DateTime.now().toString();
       await firestore
           .collection('posts')
-          .add({'title': title, 'description': description, 'time': dateNow});
+          .add({'title': title, 'description': description, 'position': position, 'time': dateNow});
 
       Get.back();
       Get.snackbar('Success', 'Data added successfully');
       titleController.clear();
       descriptionController.clear();
+      positionController.clear();
     } catch (e) {
       log("$e");
     }
@@ -29,6 +43,7 @@ class CreateController extends GetxController {
   void onInit() {
     titleController = TextEditingController();
     descriptionController = TextEditingController();
+    positionController = TextEditingController();
     super.onInit();
   }
 
@@ -36,6 +51,7 @@ class CreateController extends GetxController {
   void onClose() {
     titleController.dispose();
     descriptionController.dispose();
+    positionController.dispose();
     super.onClose();
   }
 }

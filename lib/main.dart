@@ -14,32 +14,20 @@ void main() async {
 }
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
   
-  final authC = Get.put(LoginController(), permanent: true);
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<User?>(
-        stream: authC.streamAuthStatus,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.active) {
-            log("snapshot");
             return GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: "Application",
-              initialRoute:
-                  snapshot.data != null && snapshot.data!.emailVerified == true
-                      ? Routes.HOME
-                      : Routes.LOGIN,
+              initialRoute: AppPages.INITIAL,
               getPages: AppPages.routes,
               theme: ThemeData(
                 primarySwatch: Colors.indigo,
               ),
             );
           }
-          return const LoadingView();
-        });
   }
-}
 

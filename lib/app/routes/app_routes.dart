@@ -8,6 +8,8 @@ abstract class Routes {
   static const RESET_PASSWORD = _Paths.RESET_PASSWORD;
   static const CREATE = _Paths.CREATE;
   static const UPDATE = _Paths.UPDATE;
+  static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
+  static const AUTH = _Paths.AUTH;
 }
 
 abstract class _Paths {
@@ -18,4 +20,6 @@ abstract class _Paths {
   static const RESET_PASSWORD = '/reset-password';
   static const CREATE = '/create';
   static const UPDATE = '/update';
+  static const SPLASH_SCREEN = '/splash-screen';
+  static const AUTH = '/auth';
 }
