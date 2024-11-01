@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "127802606996",
+    "project_id": "my-firebase-project-nani",
+    "storage_bucket": "my-firebase-project-nani.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:127802606996:android:f0d346aab3165a10f27b81",
+        "android_client_info": {
+          "package_name": "com.example.firebase_application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBliOpHRr87_9ckQH-O8yh1ScGVbKdXfUQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
